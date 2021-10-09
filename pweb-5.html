@@ -26,10 +26,6 @@
             margin-top: 10px;
         }
         
-        button {
-            margin-top: 50px;
-        }
-        
         .form-control {
             width: 100%;
             height: 30px;
@@ -40,9 +36,16 @@
             height: 30px;
         }
         
-        .button {
+        button {
+            margin: 0;
+            padding-top: 50px;
             margin-top: 50px;
-            background-color: #4CAF50;
+        }
+        
+        .button {
+            padding-top: 50px;
+            margin-top: 50px;
+            background-color: rgb(10, 10, 190);
             border: none;
             color: white;
             padding: 15px 32px;
@@ -50,36 +53,46 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
             cursor: pointer;
         }
+        
+        #thanks {
+            text-align: center;
+            justify-content: center;
+        }
     </style>
+
 </head>
 
 <body>
     <div class="container">
-        <h1>Form Validasi Mahasiswa</h1>
-        <form action="" method="get">
+        <h1>Form Survey Vaksinasi Mahasiswa</h1>
+        <form id="form">
             <form>
                 <div class="form-group">
                     <label for="nama"><h4>Nama</h4></label><br>
-                    <input type="nama" class="form-control" id="nama" placeholder="Muhammad Arifiansyah">
+                    <input type="nama" class="form-control" id="nama" placeholder="Muhammad Arifiansyah" name="nama" required>
+                    <p id="namaerror" hidden>Isi Nama Lengkap</p>
                 </div>
                 <div class="form-group">
                     <label for="nrp"><h4>Nrp</h4></label><br>
-                    <input type="nrp" class="form-control" id="nrp" placeholder="05111940000027">
+                    <input type="nrp" class="form-control" id="nrp" placeholder="05111940000027" name="nrp" required>
+                    <p id="nrperror" hidden>Isi NRP anda</p>
                 </div>
                 <div class="form-group">
                     <label for="email"><h4>Email</h4></label><br>
-                    <input type="email" class="form-control" id="email" placeholder="fiansyahmm@gmail.com">
+                    <input type="email" class="form-control" id="email" placeholder="fiansyahmm@gmail.com" name="email" required>
+                    <p id="emailerror" hidden>Isi Email Dengan Benar</p>
                 </div>
                 <div class="form-group">
                     <label for="alamat"><h4>Alamat</h4></label><br>
-                    <input type="alamat" class="form-control" id="alamat" placeholder="Tulungagung">
+                    <input type="alamat" class="form-control" id="alamat" placeholder="Tulungagung" name="alamat" required>
+                    <p id="alamaterror" hidden>Isi Alamat Lengkap</p>
                 </div>
                 <div class="form-group">
                     <label for="jurusan"><h4>Jurusan</h4></label><br>
-                    <select id="jurusan" name="jurusan">
+                    <select id="jurusan" name="jurusan" required>
+                        <option value="">Pilih Jurusan</option>
                         <option value="Statistika">Statistika</option>
                         <option value="Matematika">Matematika</option>
                         <option value="Biologi">Biologi</option>
@@ -109,20 +122,85 @@
                         <option value="Manajemen Bisnis">Manajemen Bisnis</option>
                         <option value="Manajemen Teknologi">Manajemen Teknologi</option>
                       </select>
+                    <p id="jurusanerror" hidden>Pilih Jurusan</p>
                 </div>
                 <div class="form-group">
                     <label for="status"><h4>Status Vaksin</h4></label><br>
-                    <select id="status" name="status">
-                        <option value="belumvaksin">Belum Vaksin</option>
-                        <option value="dosis1">Dosis 1</option>
-                        <option value="dosis2">Dosis 2</option>
+                    <select id="status" name="status" required>
+                        <option value="">Pilih Status Vaksin</option>
+                        <option value="1">Belum Vaksin</option>
+                        <option value="2">Dosis-1</option>
+                        <option value="3">Dosis-2</option>
                       </select>
+                    <p id="statuserror" hidden>Isi Status Vaksinasi</p>
                 </div>
                 <button type="submit" class="button">Submit</button>
             </form>
         </form>
+        <p id="thanks" hidden>Terimakasih !!! Data Terkirim</p>
     </div>
 
+    <script>
+        const form = document.getElementById('form');
+        const thanks = document.getElementById('thanks');
+        form.onsubmit = submit;
+
+        const nama = document.getElementById('nama');
+        nama.oninvalid = namainvalid;
+        const namaerror = document.getElementById('namaerror');
+
+        function namainvalid(event) {
+            namaerror.removeAttribute('hidden');
+        }
+
+        const nrp = document.getElementById('nrp');
+        nrp.oninvalid = nrpinvalid;
+        const nrperror = document.getElementById('nrperror');
+
+        function nrpinvalid(event) {
+            nrperror.removeAttribute('hidden');
+        }
+
+        const email = document.getElementById('email');
+        email.oninvalid = emailinvalid;
+        const emailerror = document.getElementById('emailerror');
+
+        function emailinvalid(event) {
+            emailerror.removeAttribute('hidden');
+        }
+
+        const alamat = document.getElementById('alamat');
+        alamat.oninvalid = alamatinvalid;
+        const alamaterror = document.getElementById('alamaterror');
+
+        function alamatinvalid(event) {
+            alamaterror.removeAttribute('hidden');
+        }
+
+        const jurusan = document.getElementById('jurusan');
+        jurusan.oninvalid = jurusaninvalid;
+        const jurusanerror = document.getElementById('jurusanerror');
+
+        function jurusaninvalid(event) {
+            jurusanerror.removeAttribute('hidden');
+        }
+        const status = document.getElementById('status');
+        status.oninvalid = statusinvalid;
+        status.onclick = statusvalid;
+        const statuserror = document.getElementById('statuserror');
+
+        function statusinvalid(event) {
+            statuserror.removeAttribute('hidden');
+        }
+
+
+        function submit(event) {
+            form.setAttribute('hidden', '');
+            thanks.removeAttribute('hidden');
+            // For this example, don't actually submit the form
+            event.preventDefault();
+        }
+    </script>
 
 </body>
 
