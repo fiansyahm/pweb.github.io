@@ -60,32 +60,6 @@
                     <label for="alamat"><h4>Alamat</h4></label><br>
                     <input type="alamat" class="form-control" id="alamat" placeholder="Tulungagung">
                 </div>
-                <!-- opem -->
-                <div class="form-group">
-                    <label for="jumlahorder1">Jumlah order</label>
-                    <select class="form-control" id="jumlah_order1" name="jumlah_order1">
-                        <option value="">Pilih Jumlah</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <label for="provinsi">Provinsi1</label>
-                <select name="province_id" id="province_id" class="form-control">
-                        <option value="1" namaprovinsi="1">Provinsi Tujuan</option>
-                        <option value="2" namaprovinsi="2">Provinsi 1</option>
-                    </select>
-
-                <div class="form-group ">
-                    <label>Kota Tujuan<span>*</span>
-                        </label>
-                    <select name="kota_id" id="kota_id" class="form-control">
-                            <option value="">Pilih Kota</option>
-                        </select>
-                </div>
-                <!-- end -->
                 <div class="form-group">
                     <label for="starta"><h4>Starta</h4></label><br>
                     <select id="starta" name="starta">
@@ -117,43 +91,7 @@
         </form>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-            $('select[name="jumlah_order1"]').on('change', function() {
-                $('select[name="kota_id"]').empty();
-                //kita cek jika id di dpatkan maka apa yg akan kita eksekusi
-                // if (provinceid) {
-                // jika di temukan id nya kita buat eksekusi ajax GET
-                jQuery.ajax({
-                    // url yg di root yang kita buat tadi
-                    url: "http://geraisentosa.com/kota/1",
-                    // aksion GET, karena kita mau mengambil data
-                    type: 'GET',
-                    // type data json
-                    dataType: 'json',
-                    // jika data berhasil di dapat maka kita mau apain nih
-                    success: function(data) {
-                        // jika tidak ada select dr provinsi maka select kota kososng / empty
-                        $('select[name="kota_id"]').empty();
-                        // jika ada kita looping dengan each
-                        $.each(data, function(key, value) {
-                            // perhtikan dimana kita akan menampilkan data select nya, di sini saya memberi name select kota adalah kota_id
-                            $('select[name="kota_id"]').append('<option value="' + value.city_id + '" namakota="' + value.type + ' ' + value.city_name + '">' + value.type + ' ' + value.city_name + '</option>');
-                        });
-                    }
-                });
-                // }
-            });
 
-            $('select[id="province_id"]').on('change', function() {
-
-            });
-
-        });
-    </script>
 </body>
 
 </html>
