@@ -123,15 +123,13 @@
     <script>
         $(document).ready(function() {
             $('select[name="jumlah_order1"]').on('change', function() {
-                var jumlah_orderku1 = $("#jumlah_order1 option:selected").val();
-                let provinceid = jumlah_orderku1;
                 $('select[name="kota_id"]').empty();
                 //kita cek jika id di dpatkan maka apa yg akan kita eksekusi
                 // if (provinceid) {
                 // jika di temukan id nya kita buat eksekusi ajax GET
                 jQuery.ajax({
                     // url yg di root yang kita buat tadi
-                    url: "http://geraisentosa.com/kota/" + provinceid,
+                    url: "http://geraisentosa.com/kota/1",
                     // aksion GET, karena kita mau mengambil data
                     type: 'GET',
                     // type data json
