@@ -87,7 +87,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "html",
-                url: "https://fiansyahm.github.io/pweb.github.io/data-kota.php?q=kotaasal",
+                url: "data-kota.php?q=kotaasal",
                 success: function(msg) {
                     $("select#kota_asal").html(msg);
                 }
@@ -96,7 +96,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "html",
-                url: "https://fiansyahm.github.io/pweb.github.io/data-kota.php?q=kotatujuan",
+                url: "data-kota.php?q=kotatujuan",
                 success: function(msg) {
                     $("select#kota_tujuan").html(msg);
                 }
