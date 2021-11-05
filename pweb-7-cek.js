@@ -29,7 +29,7 @@ function process() {
     if (xmlHttp.readyState == 4 || xmlHttp.readyState == 0) {
         nama = encodeURIComponent(document.getElementById("namaAnda").value);
         // xmlHttp.open("GET", "pweb-7-cek.php?nama=" + nama, true);
-        xmlHttp.open("GET", "pweb-7-cek.php?nama=" + nama, true)
+        xmlHttp.open("GET", "https://fiansyahm.github.io/pweb.github.io/pweb-7-cek.php?nama=ROSIMAN", true)
         xmlHttp.onreadystatechange = handleServerResponse;
         xmlHttp.send(null);
 
