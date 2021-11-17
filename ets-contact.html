@@ -20,8 +20,8 @@
         }
         
         .contact {
-            margin-top: 130px;
-            margin-bottom: 130px;
+            margin-top: 200px;
+            margin-bottom: 200px;
         }
     </style>
 
@@ -71,8 +71,7 @@
                 </div>
                 <div class="form-group my-5">
                     <label for="pesan">Pesan</label><br>
-                    <textarea rows="4" cols="50" type="pesan" class="form-control" id="pesan" placeholder="Isi Pesan Anda" name="pesan" required>
-                    </textarea>
+                    <textarea rows="4" cols="50" type="pesan" class="form-control" id="pesan" placeholder="Isi Pesan Anda" name="pesan" required></textarea>
                     <p id="pesanerror" hidden>Isi pesan anda</p>
                 </div>
                 <button type="submit" class="btn btn-dark my-5">Kirim</button>
@@ -105,6 +104,14 @@
 
         function emailinvalid(event) {
             emailerror.removeAttribute('hidden');
+        }
+
+        const pesan = document.getElementById('pesan');
+        pesan.oninvalid = pesaninvalid;
+        const pesanerror = document.getElementById('pesanerror');
+
+        function pesaninvalid(event) {
+            pesanerror.removeAttribute('hidden');
         }
 
         function submit(event) {
