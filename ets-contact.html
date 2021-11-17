@@ -57,28 +57,63 @@
 
     <div class="container contact">
         <h1>Contact Me</h1>
-        <form>
-            <div class="my-5">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
-            </div>
-            <div class="my-5">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="nama" class="form-control" id="nama">
-            </div>
-            <div class="my-5">
-                <label for="pesan" class="form-label">Pesan</label>
-                <textarea class="form-control" name="pesan" rows="4" cols="50">
-                
-            </textarea>
-            </div>
-            <button type="submit" class="btn btn-dark my-5">Kirim</button>
+        <form id="form">
+            <form>
+                <div class="form-group my-5">
+                    <label for="email">Email</label><br>
+                    <input type="email" class="form-control" id="email" placeholder="fiansyahmm@gmail.com" name="email" required>
+                    <p id="emailerror" hidden>Isi email dengan benar</p>
+                </div>
+                <div class="form-group my-5">
+                    <label for="nama">Nama</label><br>
+                    <input type="nama" class="form-control" id="nama" placeholder="Muhammad Arifiansyah" name="nama" required>
+                    <p id="namaerror" hidden>Isi Nama Lengkap</p>
+                </div>
+                <div class="form-group my-5">
+                    <label for="pesan">Pesan</label><br>
+                    <textarea rows="4" cols="50" type="pesan" class="form-control" id="pesan" placeholder="Isi Pesan Anda" name="pesan" required>
+                    </textarea>
+                    <p id="pesanerror" hidden>Isi pesan anda</p>
+                </div>
+                <button type="submit" class="btn btn-dark my-5">Kirim</button>
+            </form>
+            <p id="thanks" hidden>Terimakasih !!! Data Terkirim</p>
         </form>
     </div>
 
     <footer class="text-white bg-dark text-center">
         <p class="p px-0 pt-2 ps-3">Copyright © 2021 Muhammad Arifiansyah.</p>
     </footer>
+
+
+    <script>
+        const form = document.getElementById('form');
+        const thanks = document.getElementById('thanks');
+        form.onsubmit = submit;
+
+        const nama = document.getElementById('nama');
+        nama.oninvalid = namainvalid;
+        const namaerror = document.getElementById('namaerror');
+
+        function namainvalid(event) {
+            namaerror.removeAttribute('hidden');
+        }
+
+        const email = document.getElementById('email');
+        email.oninvalid = emailinvalid;
+        const emailerror = document.getElementById('emailerror');
+
+        function emailinvalid(event) {
+            emailerror.removeAttribute('hidden');
+        }
+
+        function submit(event) {
+            form.setAttribute('hidden', '');
+            thanks.removeAttribute('hidden');
+            // For this example, don't actually submit the form
+            event.preventDefault();
+        }
+    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
