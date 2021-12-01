@@ -1,3 +1,4 @@
+<!-- proses-pendaftaran.php -->
 <?php
 
 include("config.php");

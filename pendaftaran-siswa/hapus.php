@@ -1,3 +1,4 @@
+<!-- hapus.php -->
 <?php
 
 include("config.php");

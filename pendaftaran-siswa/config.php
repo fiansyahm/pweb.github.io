@@ -1,3 +1,4 @@
+<!-- config.php -->
 <?php
 
 	$server = "localhost";
