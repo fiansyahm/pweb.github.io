@@ -70,15 +70,15 @@
                     for (let i = 0; i < 30; i++) {
                         // console.log(data.provinsi[0].id);
                         const select = document.getElementById('myCity');
-                        const value = data.kota_kabupaten[i].id
-                        const label = data.kota_kabupaten[i].nama
+                        const value = data[i].id
+                        const label = data[i].name
                         select.insertAdjacentHTML('beforeend', `<option value="${value}">${label}</option>`)
                     }
                 }
 
 
             };
-            xhttp.open('GET', `https://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=${valueKota}`, true);
+            xhttp.open('GET', `http://www.emsifa.com/api-wilayah-indonesia/api/regencies/${valueKota}.json`, true);
             xhttp.send();
         }
 
@@ -89,8 +89,8 @@
                 for (let i = 0; i < 30; i++) {
                     // console.log(data.provinsi[0].id);
                     const select = document.getElementById('myProvince');
-                    const value = data.provinsi[i].id
-                    const label = data.provinsi[i].nama
+                    const value = data[i].id
+                    const label = data[i].name
                     select.insertAdjacentHTML('beforeend', `<option value="${value}" >${label}</option>`)
                 }
                 // doSomething();
@@ -98,7 +98,7 @@
 
 
         };
-        xhttp.open("GET", "https://dev.farizdotid.com/api/daerahindonesia/provinsi", true);
+        xhttp.open("GET", "http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json", true);
         xhttp.send();
     </script>
 

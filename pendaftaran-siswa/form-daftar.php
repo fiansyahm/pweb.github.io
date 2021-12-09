@@ -1,4 +1,4 @@
-<!-- form-daftar.php -->
+<!-- form daftar -->
 <!doctype html>
 <html lang="en">
 
@@ -16,7 +16,7 @@
 <body>
     <div class="jumbotron">
         <h3>Formulir Pendaftaran Siswa Baru</h3>
-        <form  action="proses-pendaftaran.php" method="POST">
+        <form  action="proses-pendaftaran.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama">Nama: </label>
                 <input class="form-control" type="text" name="nama" placeholder="nama lengkap" />
@@ -42,12 +42,46 @@
             </div>
             <div class="form-group">
                 <label for="sekolah_asal">Sekolah Asal: </label>
-                <input class="form-control" type="text" name="sekolah_asal" placeholder="nama sekolah" />
+                <input class="form-control" type="text" name="sekolah_asal" placeholder="nama sekolah" id="sekolah_asal" />
             </div>
+            <div class="form-group">
+                <label for="formFile" class="form-label">Upload Foto</label>
+                <input class="form-control" type="file" id="formFile" name="berkas" onchange="imageUploaded()">
+            </div>
+                <input class="form-control" type="text" name="foto" placeholder="nama sekolah" id="foto" hidden="true" />
             <button value="Daftar" name="daftar" type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 
+    <script>
+        let base64String = "";
+  
+  function imageUploaded() {
+      var file = document.querySelector(
+          'input[type=file]')['files'][0];
+    
+      var reader = new FileReader();
+      console.log("next");
+        
+      reader.onload = function () {
+          base64String = reader.result.replace("data:", "")
+              .replace(/^.+,/, "");
+    
+          imageBase64Stringsep = base64String;
+    
+          // alert(imageBase64Stringsep);
+          const input = document.getElementById("foto").value = imageBase64Stringsep;
+          console.log(base64String);
+      }
+      reader.readAsDataURL(file);
+  }
+    
+  function displayString() {
+      console.log("Base64String about to be printed");
+      alert(base64String);
+  }
+    </script>
+    
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

@@ -1,4 +1,5 @@
 <!-- form-edit.php -->
+
 <?php
 
 include("config.php");
@@ -44,7 +45,7 @@ if( mysqli_num_rows($query) < 1 ){
     <body>
         <div class="jumbotron">
             <h3>Formulir Edit Siswa</h3>
-            <form action="proses-edit.php" method="POST">
+            <form action="proses-edit.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $siswa['id'] ?>" />
                 <div class="form-group">
                     <label for="nama">Nama: </label>
@@ -75,9 +76,44 @@ if( mysqli_num_rows($query) < 1 ){
                     <label for="sekolah_asal">Sekolah Asal: </label>
                     <input class="form-control" type="text" name="sekolah_asal" placeholder="nama sekolah" value="<?php echo $siswa['sekolah_asal'] ?>" />
                 </div>
+                <div class="form-group">
+                    <label for="formFile" class="form-label">Upload Foto</label>
+                    <input class="form-control" type="file" id="formFile" name="berkas" onchange="imageUploaded()" >
+                </div>
+                <input class="form-control" type="text" name="foto" placeholder="nama sekolah" id="foto" hidden="true" />
                 <input type="submit" value="Simpan" name="simpan" class="btn btn-primary"/>
             </form>
         </div>
+
+
+        <script>
+        let base64String = "";
+  
+  function imageUploaded() {
+      var file = document.querySelector(
+          'input[type=file]')['files'][0];
+    
+      var reader = new FileReader();
+      console.log("next");
+        
+      reader.onload = function () {
+          base64String = reader.result.replace("data:", "")
+              .replace(/^.+,/, "");
+    
+          imageBase64Stringsep = base64String;
+    
+          // alert(imageBase64Stringsep);
+          const input = document.getElementById("foto").value = imageBase64Stringsep;
+          console.log(base64String);
+      }
+      reader.readAsDataURL(file);
+  }
+    
+  function displayString() {
+      console.log("Base64String about to be printed");
+      alert(base64String);
+  }
+    </script>
     </body>
 
     </html>

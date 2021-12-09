@@ -1,4 +1,5 @@
 <!-- list-siswa.php -->
+
 <?php include("config.php"); ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,7 @@
                     <th scope="col">Jenis Kelamin</th>
                     <th scope="col">Agama</th>
                     <th scope="col">Sekolah Asal</th>
+                    <th scope="col">Foto</th>
                     <th scope="col">Tindakan</th>
                 </tr>
             </thead>
@@ -48,6 +50,7 @@
             echo "<td>".$siswa['jenis_kelamin']."</td>";
             echo "<td>".$siswa['agama']."</td>";
             echo "<td>".$siswa['sekolah_asal']."</td>";
+            echo "<td>"."<img src='".$siswa['photo_name']."' alt='' style='height=300px;width=300px'></td>";
 
             echo "<td>";
             echo "<a class='btn btn-primary' href='form-edit.php?id=".$siswa['id']."'>Edit</a> ";
