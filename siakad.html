@@ -1,0 +1,370 @@
+<html>
+
+<head>
+    <title>[SIAKAD-ITS] Survei Kepuasan Mahasiswa</title>
+    <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+    <link href="style/pager.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="scripts/tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode: "textareas",
+            theme: "advanced",
+            theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,sub,sup,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+            theme_advanced_buttons2: "cut,copy,paste,pastetext,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,hr,removeformat,visualaid,|,charmap,|,link,unlink,anchor,image,cleanup,help,code,|,forecolor,backcolor",
+            theme_advanced_buttons3: ""
+        });
+    </script>
+
+</head>
+
+<body leftmargin="0" rightmargin="0" topmargin="0" bottommargin="0">
+
+    <!--<script type="text/javascript" src="scripts/jquery.js"></script>-->
+    <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.dimensions.js"></script>
+    <script type="text/javascript" src="scripts/jquery.positionBy.js"></script>
+    <script type="text/javascript" src="scripts/jquery.jdMenu.js"></script>
+    <link rel="stylesheet" href="style/jquery.jdMenu.css" type="text/css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156881742-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156881742-1');
+    </script>
+    <style>
+        .badge1 {
+            position: relative;
+        }
+        
+        .badge1[data-badge]:after {
+            content: attr(data-badge);
+            position: absolute;
+            top: -13px;
+            right: -5px;
+            font-size: .7em;
+            background: #FE2727;
+            color: white;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 18px;
+            border-radius: 50%;
+            letter-spacing: -1px;
+        }
+        
+        .badge1[data-badge=""]:after,
+        .badge1[data-badge="0"]:after {
+            content: none;
+        }
+    </style>
+    <div id="banner">
+        <img src="images/header.png">
+    </div>
+    <form name="fMenu" id="fMenu" method="post" action="">
+        <input type="hidden" id="actmenu" name="actmenu">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="top" colspan="2">
+
+                    <!-- <div>
+                        <ul class="jd_menu">
+                            <li><a href="home.php">Home</a></li>
+                            <li>Data&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li>Biodata&nbsp;<img src="images/left_m.gif">
+                                        <ul>
+                                            <li><a href="data_update_biodata.php">Verifikasi Biodata</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="data_mhswisuda.php">Update Data Wisuda</a></li>
+                                    <li>Lain - lain&nbsp;<img src="images/left_m.gif">
+                                        <ul>
+                                            <li><a href="list_ekivalensi.php">Ekivalensi</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Proses&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li><a href="ipd_kuesionermk.php">Kuesioner Dosen dan MK</a></li>
+                                    <li><a href="data_kur.php">Kurikulum Semester</a></li>
+                                    <li><a href="list_frs.php">Formulir Rencana Studi</a></li>
+                                </ul>
+                            </li>
+                            <li>Laporan&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li>Transkrip&nbsp;<img src="images/left_m.gif">
+                                        <ul>
+                                            <li><a href="xrep_transkrip.php">Transkrip</a></li>
+                                            <li><a href="xrep_transkrip_sementara.php">Transkrip Sementara</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>Mahasiswa&nbsp;<img src="images/left_m.gif">
+                                        <ul>
+                                            <li><a href="data_mhsakademik.php">Akademik Mahasiswa</a></li>
+                                            <li><a href="xrep_kartumahasiswa.php">KTM Virtual</a></li>
+                                            <li><a href="data_mhs.php">Biodata Mahasiswa</a></li>
+                                            <li><a href="data_kuliah.php">Perkuliahan Mahasiswa</a></li>
+                                            <li><a href="list_mhsmk.php">Daftar Mhs & Matakuliah</a></li>
+                                            <li><a href="list_mhsstatang.php">Status Per Angkatan</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="list_prasyarat.php">Prasyarat Matakuliah</a></li>
+                                    <li><a href="list_mhsjadwal.php">Jadwal Kuliah Mhs</a></li>
+                                    <li>Nilai&nbsp;<img src="images/left_m.gif">
+                                        <ul>
+                                            <li><a href="data_nilaimhs.php">Nilai Per Mhs</a></li>
+                                            <li><a href="data_nilaipersem.php">Nilai Per Semester</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Lain-Lain&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li><a href="css_bio_puas.php">Survei Kepuasan Mahasiswa</a></li>
+                                </ul>
+                            </li>
+                            <li>Ekivalensi&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li><a href="ekivalensi_rekapitulasi_mhs.php">Rekapitulasi Ekivalensi</a></li>
+                                </ul>
+                            </li>
+                            <li>Yudisium&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li>Nilai Bahasa Asing&nbsp;<img src="images/left_m.gif">
+                                        <ul>
+                                            <li><a href="yudisium_nilai_bahasa_asing.php">Unggah Nilai Bahasa Asing</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>SKPI&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li><a href="skpi_draft.php">Draft SKPI</a></li>
+                                    <li>Panduan Pengguna&nbsp;<img src="images/left_m.gif">
+                                        <ul>
+                                            <li><a href="downloads/panduan_umum_pengisian_skpi.pdf">Panduan Umum (pdf)</a></li>
+                                            <li><a href="downloads/user_manual_skpi_akad_mhs_v01.pdf">Sebagai Mahasiswa (pdf)</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Biaya Pendidikan&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li><a href="data_historis_pembayaran.php">Historis Pembayaran SPP</a></li>
+                                    <li><a href="data_tagihan_pendidikan.php">Tagihan Biaya Pendidikan</a></li>
+                                    <li><a href="data_pembayaran_wisuda.php">Pembayaran Wisuda</a></li>
+                                </ul>
+                            </li>
+                            <li class="badge1" data-badge="1">Surat Mahasiswa&nbsp;<img src="images/down_m.gif">
+                                <ul>
+                                    <li><a href="surat_mahasiswa.php">Layanan Surat Mahasiswa</a></li>
+                                    <li><a href="downloads/panduan_layanan_surat_mahasiswa.pdf">Panduan Layanan (PDF)</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <font color="yellow">Keluar </font><img src="images/down_m.gif">
+                                <ul>
+                                    <li><a href="https://my.its.ac.id">Kembali ke Menu</a></li>
+                                    <li>
+                                        <a href="sys_logout.php">
+                                            <font color="yellow">Logout</font>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div> -->
+                </td>
+            </tr>
+            <tr height="20" style="font-family: sans-serif, Tahoma; background-color:#ece9d8;">
+                <td nowrap style="padding-left:5">
+                    Periode: Semester Gasal 2021/2022 Tanggal: Thu, 21 Apr 2022 07:35:45 +0700 </td>
+
+
+
+                <td align="right" nowrap style="padding-right:5;color:#666;padding-right:10px">
+                    <b>[n134
+] User ID: </b>05111940000027, Muhammad Arifiansyah &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b>Hak Akses:</b>
+
+
+                    <select id="sRoles" name="sRoles" class="comboSmallStyle" onChange="do_changeRoles();" style="width:100px">
+	<option value="">- Pilih Hak Akses -</option>
+	<option value="10" selected >Mahasiswa</option>
+	</select>
+
+                    <select id="sFak" name="sFak" class="comboSmallStyle" onChange="do_changeFak()" style="width:100px;background-color:#eeef66">
+	<option value="">- Pilih Fakultas -</option>
+	<option value="7" selected  style="background-color:#eeef66">ELECTICS</option>
+	</select>
+
+                    <select id="sJur" name="sJur" class="comboSmallStyle" onChange="do_changeUnit()" style="background-color:#99ff99">
+	<option value="" >- Pilih Prodi -</option>
+	<option value="51100" selected  style="background-color:#99ff99">51100 - 05114000 - S-1 TEKNIK INFORMATIKA</option>
+	</select>
+
+                </td>
+
+            </tr>
+        </table>
+    </form>
+    <script language="JavaScript">
+        function do_changeRoles() {
+            document.getElementById("sJur").value = "";
+            document.getElementById("actmenu").value = "changeRole";
+            document.getElementById("fMenu").submit();
+        }
+
+        function do_changeFak() {
+            document.getElementById("actmenu").value = "changeFak";
+            document.getElementById("fMenu").submit();
+        }
+
+        function do_changeUnit() {
+            document.getElementById("actmenu").value = "changeUnit";
+            document.getElementById("fMenu").submit();
+        }
+    </script>
+
+    <div align="center">
+        <table width="500">
+            <tr height="40">
+                <td align="center" colspan="2" class="PageTitle">Survei Kepuasan Mahasiswa</td>
+            </tr>
+        </table>
+
+        <br>
+        <div align="center"><strong>SILAKAN ISI BIODATA & SURVEY</strong></div><br>
+        <form id="form1" name="form1" enctype="multipart/form-data" method="post" action="">
+            <table width="743" height="370" border="1" align="center" class="dataGrid">
+                <tr>
+                    <td width="210"><strong>NRP Mahasiswa </strong></td>
+                    <td width="517">&nbsp;&nbsp;05111940000027</td>
+                </tr>
+                <tr>
+                    <td><strong>Jenis Kelamin </strong></td>
+                    <td>&nbsp;
+                        <!--<input name="rjk" type="radio" value="L" />
+        Laki-laki 
+          &nbsp;<input name="rjk" type="radio" value="P" />
+        Perempuan -->
+                        LAKI-LAKI <input type="hidden" name="hjk" value="L " />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>Usia</strong></td>
+                    <td><input name="tusia" type="text" size="6" maxlength="2" /> Tahun </td>
+                </tr>
+                <tr>
+                    <td><strong>Fakultas</strong></td>
+                    <td>&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Jurusan</strong></td>
+                    <td>&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>IPK</strong></td>
+                    <td><strong>&nbsp;
+		<!--
+        <input name="ripk" type="radio" value="1" />
+        &lt; 2 
+        &nbsp;<input name="ripk" type="radio" value="2" />
+        2 - 2,49 
+        &nbsp;<input name="ripk" type="radio" value="3" />
+        2,5 - 3 
+        &nbsp;<input name="ripk" type="radio" value="4" />
+        &gt; 3 
+		-->
+		3.534		<input type="hidden" name= "hipk" value="4 " />
+		</strong></td>
+                </tr>
+                <tr>
+                    <!-- utk asal mahasiswa nilai 1 -> tinggal di surabaya , nilai 0 -> luar surabaya   -->
+                    <td><strong>Asal Mahasiswa </strong></td>
+                    <td><input name="rasal" type="radio" value="1" /> Surabaya
+                        <input name="rasal" type="radio" value="0" /> Luar Surabaya, sebutkan
+                        <input name="tasal" type="text" size="30" maxlength="30" /></td>
+                </tr>
+
+                <tr>
+                    <!-- nilai 1 -> rumah sendiri , nilai 0 -> kost/rumah saudara -->
+                    <td><strong>Tempat Tinggal di Surabaya </strong></td>
+                    <td><input name="rsby" type="radio" value="0" /> Kost/Rumah Saudara
+                        <input name="rsby" type="radio" value="1" /> Rumah Sendiri </td>
+                </tr>
+
+                <tr>
+                    <!-- nilai 1 -> kuliah , nilai 0 -> bekerja  -->
+                    <td><strong>Aktivitas Selain Kuliah </strong></td>
+                    <td><input name="rkul" type="radio" value="0" /> Bekerja
+                        <input name="rkul" type="radio" value="1" /> Tidak Bekerja </td>
+                </tr>
+
+                <tr>
+                    <!-- nilai 1 -> aktif , nilai 0 -> tidak aktif    -->
+                    <td><strong>Aktivitas di Ormawa </strong></td>
+                    <td><input name="rorg" type="radio" value="0" /> Tidak Aktif
+                        <input name="rorg" type="radio" value="1" /> Aktif, sebutkan
+                        <input name="torg" type="text" size="30" maxlength="30" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>
+        <label>        </label>
+      </strong> <label><div align="center"><strong>
+          <input type="submit" name="bio" value="Kembali" style="background-color: blue;color: white"/>
+          <input type="submit" name="bio" value="Lanjut Survey" style="background-color: green;color: white"/>
+        </strong></div>
+      </label></td>
+                </tr>
+            </table>
+        </form>
+
+
+        <div class="box container" style="margin-top: 100px;
+        width: 50%;
+        border: 3px solid green;
+        padding: 10px;">
+            <p class="heading">FAQs</p>
+            <div class="faqs">
+                <details>
+                    <summary>Berapa Jumlah Aktivitas di Ormawa yang dapat dicantumkan?</summary>
+                    <p class="text">Maksimal 3. Dan dibatasi tanda koma (,)</p>
+                </details>
+                <details>
+                    <summary>Apakah magang termasuk bekerja?</summary>
+                    <p class="text">Tidak</p>
+                </details>
+                <details>
+                    <summary>Saya tinggal di luar surabaya dan PP setiap hari untuk kulih,Tempat tinggal di sby saya isi apa? </summary>
+                    <p class="text">Tinggal di Surabaya</p>
+                </details>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+<script type="text/javascript">
+    function doSimpan() {
+        document.getElementById("sipform").submit();
+    }
+
+    function doReset() {
+        document.getElementById("sipform").reset();
+    }
+</script>
+
+</html>
